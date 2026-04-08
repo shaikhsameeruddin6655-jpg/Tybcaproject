@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paints Works - Exterior & Interior Painting Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link rel="stylesheet" href="css/estimate-calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Colorful Background Elements -->
+    <div class="colorful-bg"></div>
+    <div class="color-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Paints Works</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="estimate-calculator.html" class="nav-link">Estimate Calculator</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="#home" class="mobile-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#products" class="mobile-nav-item">
+            <i class="fas fa-palette"></i>
+            <span>Products</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item" onclick="auth.showProfileModal()">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Transform Your Dull Space Into a Stunning Masterpiece</h1>
+                        <p class="hero-subtitle">Breathe life into your home with our premium painting services. From boring to beautiful in just days!</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="scrollToSection('products')">
+                                <i class="fas fa-paint-brush"></i>
+                                Explore Products
+                            </button>
+                            <button class="btn btn-outline btn-large" onclick="scrollToSection('services')">
+                                <i class="fas fa-construction"></i>
+                                Our Services
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="location.href='estimate-calculator.html'">
+                                <i class="fas fa-calculator"></i>
+                                Get Estimate
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-card">
+                            <img src="images/hero-painting.jpg" alt="Professional Painting Work">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products Section -->
+            <section id="products" class="featured-products">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Featured Painting Designs</h2>
+                        <p class="section-subtitle">Discover our premium collection of interior and exterior painting solutions</p>
+                    </div>
+                    
+                    <div class="product-filters">
+                        <div class="filter-group">
+                            <button class="filter-btn active" data-category="all">All</button>
+                            <button class="filter-btn" data-category="interior">Interior</button>
+                            <button class="filter-btn" data-category="exterior">Exterior</button>
+                            <button class="filter-btn" data-category="commercial">Commercial</button>
+                        </div>
+                        <div class="search-group">
+                            <input type="text" id="searchInput" placeholder="Search products...">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
+
+                    <div class="load-more-container">
+                        <button class="btn btn-outline" id="loadMoreBtn">Load More Products</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="services">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Our Services</h2>
+                        <p class="section-subtitle">Comprehensive painting solutions for every need</p>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Interior Painting</h3>
+                            <p>Professional interior painting services with premium quality paints and expert craftsmanship.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Exterior Painting</h3>
+                            <p>Weather-resistant exterior painting solutions that protect and beautify your property.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Commercial Projects</h3>
+                            <p>Large-scale commercial painting projects with minimal business disruption.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Color Consultation</h3>
+                            <p>Expert color consultation to help you choose the perfect palette for your space.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">What Our Clients Say</h2>
+                        <p class="section-subtitle">Real experiences from satisfied customers</p>
+                    </div>
+                    
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Exceptional service! The team transformed our home with their professional painting services. The digital project management made everything so easy."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/avatar1.jpg" alt="Client">
+                                <div>
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Homeowner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"The digital management system made tracking our project so easy and transparent. Highly recommend their services!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/avatar2.jpg" alt="Client">
+                                <div>
+                                    <h4>Mike Chen</h4>
+                                    <p>Business Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Professional, reliable, and affordable. They completed our office painting project on time with excellent results."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="images/avatar3.jpg" alt="Client">
+                                <div>
+                                    <h4>Emily Davis</h4>
+                                    <p>Property Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">About Paints Works</h2>
+                        <p class="section-subtitle">Professional painting solutions with innovative digital management</p>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Transforming Spaces Since 2010</h3>
+                            <p>Paints Works is a leading painting service provider that combines traditional craftsmanship with modern digital project management. We specialize in both interior and exterior painting projects for residential, commercial, and industrial spaces.</p>
+                            <p>Our innovative digital platform ensures complete transparency, real-time project tracking, and seamless communication between our team and clients. From initial consultation to final walkthrough, we make every painting project a masterpiece.</p>
+                            <div class="about-stats">
+                                <div class="stat-item">
+                                    <h4>1000+</h4>
+                                    <p>Projects Completed</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h4>15+</h4>
+                                    <p>Years Experience</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h4>98%</h4>
+                                    <p>Client Satisfaction</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h4>50+</h4>
+                                    <p>Professional Team</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-features">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachograph-alt"></i>
+                                </div>
+                                <h4>Digital Project Management</h4>
+                                <p>Track your project progress in real-time with our advanced management system.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h4>Expert Color Consultation</h4>
+                                <p>Professional color experts help you choose the perfect palette for your space.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Quality Guarantee</h4>
+                                <p>Comprehensive warranty on all our painting services for your peace of mind.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h4>Eco-Friendly Solutions</h4>
+                                <p>We use sustainable, low-VOC paints that are safe for your family and environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Get in Touch</h2>
+                        <p class="section-subtitle">Let's discuss your painting project</p>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Call Us</h4>
+                                    <p>+91 98765 43210</p>
+                                    <p>Mon-Sat: 9AM-6PM</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email Us</h4>
+                                    <p>info@paintsworks.com</p>
+                                    <p>support@paintsworks.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Visit Us</h4>
+                                    <p>123 Paint Street, Art City</p>
+                                    <p>Mumbai, Maharashtra 400001</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Saturday: 9AM-6PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">Full Name *</label>
+                                        <input type="text" class="form-input" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email Address *</label>
+                                        <input type="email" class="form-input" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone Number *</label>
+                                        <input type="tel" class="form-input" id="phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="subject">Subject *</label>
+                                        <select class="form-input" id="subject" name="subject" required>
+                                            <option value="">Select Subject</option>
+                                            <option value="quote">Request Quote</option>
+                                            <option value="consultation">Color Consultation</option>
+                                            <option value="project">Project Inquiry</option>
+                                            <option value="support">Technical Support</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="message">Message *</label>
+                                    <textarea class="form-input" id="message" name="message" rows="5" required placeholder="Tell us about your painting project..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-large">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        <p class="section-subtitle">Everything you need to know about our services</p>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How long does a typical painting project take?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Project duration varies based on size and complexity. Interior projects typically take 3-5 days, while exterior projects may take 5-7 days depending on weather conditions.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Do you provide color consultation services?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we offer professional color consultation services to help you choose the perfect color scheme for your space.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What kind of paint do you use?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We use premium quality, eco-friendly paints from leading brands that are durable and safe for your family and the environment.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Is your work guaranteed?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we offer a comprehensive warranty on all our painting services to ensure your complete satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Paints Works</span>
+                    </div>
+                    <p>Professional painting solutions with digital project management for seamless execution.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Interior Painting</a></li>
+                        <li><a href="#">Exterior Painting</a></li>
+                        <li><a href="#">Commercial Projects</a></li>
+                        <li><a href="#">Color Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@paintsworks.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Paint Street, Mumbai, Maharashtra 400001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paints Works. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

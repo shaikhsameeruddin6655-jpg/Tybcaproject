@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Paints Works</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-paint-roller"></i>
+                    Paints Works
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h1>Create Account</h1>
+                        <p>Join Paints Works and transform your spaces</p>
+                    </div>
+
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="registerFirstName">
+                                    <i class="fas fa-user"></i>
+                                    First Name
+                                </label>
+                                <input type="text" class="form-input" id="registerFirstName" name="firstName" 
+                                       required placeholder="Enter your first name">
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="registerLastName">
+                                    <i class="fas fa-user"></i>
+                                    Last Name
+                                </label>
+                                <input type="text" class="form-input" id="registerLastName" name="lastName" 
+                                       required placeholder="Enter your last name">
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="registerEmail">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input type="email" class="form-input" id="registerEmail" name="email" 
+                                   required placeholder="Enter your email address">
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="registerPhone">
+                                <i class="fas fa-phone"></i>
+                                Phone Number
+                            </label>
+                            <input type="tel" class="form-input" id="registerPhone" name="phone" 
+                                   placeholder="Enter your phone number (optional)">
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="registerPassword">
+                                <i class="fas fa-lock"></i>
+                                Password
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input type="password" class="form-input" id="registerPassword" name="password" 
+                                       required placeholder="Create a strong password">
+                                <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="passwordStrength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Password strength</span>
+                            </div>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="registerConfirmPassword">
+                                <i class="fas fa-lock"></i>
+                                Confirm Password
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input type="password" class="form-input" id="registerConfirmPassword" name="confirmPassword" 
+                                       required placeholder="Confirm your password">
+                                <button type="button" class="password-toggle" onclick="togglePassword('registerConfirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                <span class="checkbox-text">
+                                    I agree to the <a href="#" onclick="showTerms()">Terms of Service</a> 
+                                    and <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+                                </span>
+                            </label>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkbox-text">
+                                    Send me updates about new services and special offers
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-lg" id="registerBtn">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>Or sign up with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn google" onclick="handleSocialLogin('google')">
+                            <i class="fab fa-google"></i>
+                            Continue with Google
+                        </button>
+                        <button type="button" class="social-btn facebook" onclick="handleSocialLogin('facebook')">
+                            <i class="fab fa-facebook-f"></i>
+                            Continue with Facebook
+                        </button>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? 
+                            <a href="login.html" class="auth-link">
+                                Sign In
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="auth-features">
+                    <h3>Benefits of Joining Paints Works</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <h4>Color Consultation</h4>
+                                <p>Get expert advice on color selection for your projects</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-calculator"></i>
+                            <div>
+                                <h4>Instant Quotes</h4>
+                                <p>Receive quick and accurate pricing for your painting needs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <div>
+                                <h4>Project Management</h4>
+                                <p>Track your projects from start to finish</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-percentage"></i>
+                            <div>
+                                <h4>Member Discounts</h4>
+                                <p>Enjoy exclusive pricing on all our services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms of Service</h3>
+                <button class="modal-close" onclick="closeModal('termsModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content">
+                    <h4>1. Acceptance of Terms</h4>
+                    <p>By accessing and using Paints Works, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                    
+                    <h4>2. Use License</h4>
+                    <p>Permission is granted to temporarily use Paints Works for personal, non-commercial transitory viewing only.</p>
+                    
+                    <h4>3. Account Registration</h4>
+                    <p>You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.</p>
+                    
+                    <h4>4. Service Terms</h4>
+                    <p>Our painting services are subject to availability and local regulations. Final pricing may vary based on project requirements.</p>
+                    
+                    <h4>5. Privacy Policy</h4>
+                    <p>Your privacy is important to us. Please review our Privacy Policy, which also governs your use of our services.</p>
+                    
+                    <h4>6. Contact Information</h4>
+                    <p>Questions about the Terms of Service should be sent to us at support@paintsworks.com.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="modal-close" onclick="closeModal('privacyModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="privacy-content">
+                    <h4>Information We Collect</h4>
+                    <p>We collect information you provide directly to us, such as when you create an account, request a quote, or contact us for support.</p>
+                    
+                    <h4>How We Use Your Information</h4>
+                    <p>We use the information we collect to provide, maintain, and improve our services, process transactions, and communicate with you.</p>
+                    
+                    <h4>Information Sharing</h4>
+                    <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+                    
+                    <h4>Data Security</h4>
+                    <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                    
+                    <h4>Your Rights</h4>
+                    <p>You have the right to access, update, or delete your personal information at any time through your account settings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

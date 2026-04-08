@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Paints Works</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="/">Paints Works</a></div>
+            <div class="nav-menu">
+                <a href="/">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="" alt="">
+                    </div>
+                    <div class="thumbnail-images">
+                        <!-- Thumbnails will be loaded here -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1 id="productTitle"></h1>
+                    <div class="product-rating">
+                        <div class="stars" id="productStars"></div>
+                        <span id="productReviews"></span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price" id="currentPrice"></span>
+                        <span class="original-price" id="originalPrice"></span>
+                    </div>
+                    <div class="product-description" id="productDescription"></div>
+                    <div class="product-features" id="productFeatures"></div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+                        <button class="btn btn-outline" id="addToWishlistBtn">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../javascript/main.js"></script>
+    <script src="../javascript/product-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate Calculator - Paints Works</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/estimate-calculator.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Colorful Background Elements -->
+    <div class="colorful-bg"></div>
+    <div class="color-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Paints Works</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#products" class="nav-link">Products</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="#" class="nav-link active">Estimate Calculator</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="btn btn-outline" onclick="auth.showLoginModal()">Login</button>
+                    <button class="btn btn-primary" onclick="auth.showSignupModal()">Sign Up</button>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="index.html#products" class="mobile-nav-item">
+            <i class="fas fa-palette"></i>
+            <span>Products</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item" onclick="auth.showProfileModal()">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Estimate Calculator</h1>
+                <p>Get instant cost estimates for your painting project</p>
+            </div>
+
+            <!-- Calculator Form -->
+            <section class="calculator-section">
+                <div class="calculator-form">
+                    <h2>Project Details</h2>
+                    <form id="estimateForm">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label class="form-label" for="projectName">Project Name *</label>
+                                <input type="text" class="form-input" id="projectName" name="projectName" required placeholder="Enter a name for your project">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="projectType">Project Type *</label>
+                                <select class="form-input" id="projectType" name="projectType" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="interior">Interior Painting</option>
+                                    <option value="exterior">Exterior Painting</option>
+                                    <option value="commercial">Commercial Painting</option>
+                                    <option value="both">Interior + Exterior</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="propertyType">Property Type *</label>
+                                <select class="form-input" id="propertyType" name="propertyType" required>
+                                    <option value="">Select Property Type</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="house">House</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="office">Office</option>
+                                    <option value="retail">Retail Space</option>
+                                    <option value="industrial">Industrial</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="squareFootage">Square Footage *</label>
+                                <input type="number" class="form-input" id="squareFootage" name="squareFootage" required min="100" placeholder="Enter total area in sq.ft">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="rooms">Number of Rooms *</label>
+                                <input type="number" class="form-input" id="rooms" name="rooms" required min="1" placeholder="Enter number of rooms">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="currentCondition">Current Condition *</label>
+                                <select class="form-input" id="currentCondition" name="currentCondition" required>
+                                    <option value="">Select Condition</option>
+                                    <option value="new">New Surface</option>
+                                    <option value="good">Good Condition</option>
+                                    <option value="fair">Fair Condition</option>
+                                    <option value="poor">Poor Condition</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="paintQuality">Paint Quality *</label>
+                                <select class="form-input" id="paintQuality" name="paintQuality" required>
+                                    <option value="">Select Paint Quality</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="premium">Premium</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="ceilings">Ceiling Painting</label>
+                                <select class="form-input" id="ceilings" name="ceilings">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Preparation Work</label>
+                            <div class="checkbox-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="prepWork" value="wall-prep">
+                                    <span>Wall Preparation</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="prepWork" value="primer">
+                                    <span>Primer Application</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="prepWork" value="repair">
+                                    <span>Wall Repair</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="prepWork" value="sanding">
+                                    <span>Sanding</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Special Features</label>
+                            <div class="checkbox-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="specialFeatures" value="texture">
+                                    <span>Texture Finishing</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="specialFeatures" value="stencil">
+                                    <span>Stencil Design</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="specialFeatures" value="accent">
+                                    <span>Accent Wall</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="specialFeatures" value="mural">
+                                    <span>Mural Painting</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="urgency">Project Urgency</label>
+                                <select class="form-input" id="urgency" name="urgency">
+                                    <option value="normal">Normal (2-3 weeks)</option>
+                                    <option value="express">Express (1 week)</option>
+                                    <option value="urgent">Urgent (3-4 days)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="location">Location</label>
+                                <input type="text" class="form-input" id="location" name="location" placeholder="City/Area">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="estimateCalculator.resetForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-calculator"></i>
+                                Calculate Estimate
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Estimate Results -->
+                <div class="estimate-results" id="estimateResults" style="display: none;">
+                    <h2>Estimated Cost</h2>
+                    <div class="cost-summary">
+                        <div class="total-cost">
+                            <span class="cost-label">Total Estimate</span>
+                            <span class="cost-amount" id="totalEstimate">₹0</span>
+                        </div>
+                        <div class="cost-info">
+                            <div class="info-item">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Valid for 30 days</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Quality guarantee included</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Estimated duration: <span id="estimatedDuration">0</span> days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="estimate-actions">
+                        <button class="btn btn-primary" onclick="estimateCalculator.saveEstimate()">
+                            <i class="fas fa-save"></i>
+                            Save Estimate
+                        </button>
+                        <button class="btn btn-secondary" onclick="estimateCalculator.requestQuote()">
+                            <i class="fas fa-envelope"></i>
+                            Request Detailed Quote
+                        </button>
+                        <button class="btn btn-outline" onclick="estimateCalculator.bookProject()">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Project
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cost Breakdown -->
+            <section class="cost-breakdown" id="costBreakdown" style="display: none;">
+                <h2>Cost Breakdown</h2>
+                <div class="breakdown-content">
+                    <div class="breakdown-section">
+                        <h3>Material Costs</h3>
+                        <div class="breakdown-items" id="materialBreakdown">
+                            <!-- Material costs will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="breakdown-section">
+                        <h3>Labor Costs</h3>
+                        <div class="breakdown-items" id="laborBreakdown">
+                            <!-- Labor costs will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="breakdown-section">
+                        <h3>Additional Services</h3>
+                        <div class="breakdown-items" id="servicesBreakdown">
+                            <!-- Additional services costs will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Saved Estimates -->
+            <section class="saved-estimates">
+                <h2>Saved Estimates</h2>
+                <div class="estimates-list" id="estimatesList">
+                    <!-- Saved estimates will be loaded here -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-estimates" id="emptyEstimates" style="display: none;">
+                    <div class="empty-estimates-content">
+                        <i class="fas fa-file-invoice fa-3x text-light"></i>
+                        <h3>No Saved Estimates</h3>
+                        <p>Calculate and save estimates for quick reference</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/estimate-calculator.js"></script>
+    <script>
+        // Initialize estimate calculator and make it globally accessible
+        let estimateCalculator;
+        document.addEventListener('DOMContentLoaded', function() {
+            estimateCalculator = new EstimateCalculator();
+            window.estimateCalculator = estimateCalculator;
+        });
+    </script>
+</body>
+</html>
