@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Paints Works</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Colorful Background Elements -->
+    <div class="colorful-bg"></div>
+    <div class="color-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Paints Works</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#products" class="nav-link">Products</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="estimate-calculator.html" class="nav-link">Estimate Calculator</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="admin.html" class="admin-icon" title="Admin Panel">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="products.html" class="mobile-nav-item">
+            <i class="fas fa-palette"></i>
+            <span>Products</span>
+        </a>
+        <a href="cart.html" class="mobile-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="mobile-nav-item" onclick="handleProfileClick(event)">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        function handleProfileClick(e) {
+            e.preventDefault();
+            const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+            if (currentUser && typeof auth !== 'undefined' && auth.showProfileModal) {
+                auth.showProfileModal();
+            } else {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Checkout</h1>
+                <p>Complete your painting service order</p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Contact</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Service Address</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+
+            <!-- Checkout Form -->
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Step 1: Contact Information -->
+                        <div class="form-step active" data-step="1">
+                            <h2>Contact Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">First Name *</label>
+                                    <input type="text" class="form-input" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Last Name *</label>
+                                    <input type="text" class="form-input" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" class="form-input" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" class="form-input" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" onclick="checkoutManager.previousStep()">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="checkoutManager.nextStep()">Continue</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Service Address -->
+                        <div class="form-step" data-step="2">
+                            <h2>Service Address</h2>
+                            <div class="form-group">
+                                <label class="form-label" for="address">Street Address *</label>
+                                <input type="text" class="form-input" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="city">City *</label>
+                                    <input type="text" class="form-input" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="state">State *</label>
+                                    <input type="text" class="form-input" id="state" name="state" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="zipCode">ZIP Code *</label>
+                                    <input type="text" class="form-input" id="zipCode" name="zipCode" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="serviceDate">Preferred Service Date</label>
+                                    <input type="date" class="form-input" id="serviceDate" name="serviceDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="notes">Special Instructions</label>
+                                <textarea class="form-input" id="notes" name="notes" rows="3" placeholder="Any special requirements or notes..."></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" onclick="checkoutManager.previousStep()">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="checkoutManager.nextStep()">Continue</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Payment Method -->
+                        <div class="form-step" data-step="3">
+                            <h2>Payment Method</h2>
+                            <div class="payment-options">
+                                <label class="payment-option" data-method="card">
+                                    <input type="radio" name="paymentMethod" value="card" checked>
+                                    <div class="payment-card">
+                                        <i class="fas fa-credit-card"></i>
+                                        <div>
+                                            <h4>Credit/Debit Card</h4>
+                                            <p>Pay with Visa, Mastercard, or RuPay</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" data-method="upi">
+                                    <input type="radio" name="paymentMethod" value="upi">
+                                    <div class="payment-card">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <div>
+                                            <h4>UPI</h4>
+                                            <p>Pay with Google Pay, PhonePe, or Paytm</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" data-method="netbanking">
+                                    <input type="radio" name="paymentMethod" value="netbanking">
+                                    <div class="payment-card">
+                                        <i class="fas fa-university"></i>
+                                        <div>
+                                            <h4>Net Banking</h4>
+                                            <p>Pay directly from your bank account</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option" data-method="cod">
+                                    <input type="radio" name="paymentMethod" value="cod">
+                                    <div class="payment-card">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        <div>
+                                            <h4>Cash on Delivery</h4>
+                                            <p>Pay when service is completed</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Card Payment Form -->
+                            <div class="payment-form active" id="cardPaymentForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="cardNumber">Card Number *</label>
+                                        <input type="text" class="form-input" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        <div class="card-icons">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                            <i class="fab fa-cc-rupay"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="cardName">Name on Card *</label>
+                                        <input type="text" class="form-input" id="cardName" name="cardName" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="cardExpiry">Expiry Date *</label>
+                                        <input type="text" class="form-input" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="cardCvv">CVV *</label>
+                                        <input type="text" class="form-input" id="cardCvv" name="cardCvv" placeholder="123" maxlength="4">
+                                        <div class="cvv-help">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>3 or 4 digits</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- UPI Payment Form -->
+                            <div class="payment-form" id="upiPaymentForm">
+                                <div class="upi-section">
+                                    <h3>Scan QR Code to Pay</h3>
+                                    <div class="qr-code-container">
+                                        <div class="qr-code">
+                                            <div class="qr-placeholder">
+                                                <i class="fas fa-qrcode fa-5x"></i>
+                                                <p>Scan with any UPI app</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="upi-id-section">
+                                        <label class="form-label">Or pay using UPI ID</label>
+                                        <div class="upi-input-group">
+                                            <input type="text" class="form-input" id="upiId" placeholder="yourname@upi">
+                                            <button class="btn btn-primary" onclick="checkoutManager.simulateUPIPayment()">Pay Now</button>
+                                        </div>
+                                    </div>
+                                    <div class="upi-apps">
+                                        <p>Supported UPI Apps:</p>
+                                        <div class="upi-app-icons">
+                                            <i class="fas fa-google"></i>
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Net Banking Form -->
+                            <div class="payment-form" id="netbankingPaymentForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="bankName">Select Bank *</label>
+                                    <select class="form-input" id="bankName" name="bankName" required>
+                                        <option value="">Choose your bank</option>
+                                        <option value="sbi">State Bank of India</option>
+                                        <option value="hdfc">HDFC Bank</option>
+                                        <option value="icici">ICICI Bank</option>
+                                        <option value="axis">Axis Bank</option>
+                                        <option value="kotak">Kotak Mahindra Bank</option>
+                                        <option value="pnb">Punjab National Bank</option>
+                                        <option value="other">Other Bank</option>
+                                    </select>
+                                </div>
+                                <div class="netbanking-notice">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>You will be redirected to your bank's secure payment gateway</p>
+                                </div>
+                            </div>
+
+                            <!-- COD Form -->
+                            <div class="payment-form" id="codPaymentForm">
+                                <div class="cod-notice">
+                                    <i class="fas fa-money-bill-wave fa-2x"></i>
+                                    <h3>Cash on Delivery</h3>
+                                    <p>Pay in cash when our team completes the painting service at your location.</p>
+                                    <div class="cod-terms">
+                                        <ul>
+                                            <li>Full payment due upon service completion</li>
+                                            <li>Our team will provide official receipt</li>
+                                            <li>No additional charges for COD</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" onclick="checkoutManager.previousStep()">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="checkoutManager.nextStep()">Continue</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Order Review -->
+                        <div class="form-step" data-step="4">
+                            <h2>Order Review</h2>
+                            <div class="order-review">
+                                <div class="review-section">
+                                    <h3>Contact Information</h3>
+                                    <div id="reviewContact"></div>
+                                </div>
+                                <div class="review-section">
+                                    <h3>Service Address</h3>
+                                    <div id="reviewAddress"></div>
+                                </div>
+                                <div class="review-section">
+                                    <h3>Order Items</h3>
+                                    <div id="reviewItems"></div>
+                                </div>
+                                <div class="review-section">
+                                    <h3>Payment Method</h3>
+                                    <div id="reviewPayment"></div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline" onclick="checkoutManager.previousStep()">Back</button>
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="order-summary-sidebar">
+                    <h2>Order Summary</h2>
+                    <div id="sidebarItems"></div>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="sidebarSubtotal">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (18%)</span>
+                        <span id="sidebarTax">₹0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="sidebarShipping">₹0</span>
+                    </div>
+                    <div class="summary-row discount" id="sidebarDiscountRow" style="display: none;">
+                        <span>Discount</span>
+                        <span id="sidebarDiscount">-₹0</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="sidebarTotal">₹0</span>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="promo-section">
+                        <h3>Promo Code</h3>
+                        <div class="promo-input-group">
+                            <input type="text" id="sidebarPromoCode" placeholder="Enter promo code">
+                            <button class="btn btn-outline" onclick="checkoutManager.applyPromoCode()">Apply</button>
+                        </div>
+                        <div class="promo-message" id="sidebarPromoMessage"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Paints Works</span>
+                    </div>
+                    <p>Professional painting solutions with digital project management for seamless execution.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Interior Painting</a></li>
+                        <li><a href="#">Exterior Painting</a></li>
+                        <li><a href="#">Commercial Projects</a></li>
+                        <li><a href="#">Color Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@paintsworks.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Paint Street, Mumbai, Maharashtra 400001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paints Works. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        // Initialize checkout manager and make it globally accessible
+        let checkoutManager;
+        document.addEventListener('DOMContentLoaded', function() {
+            checkoutManager = new CheckoutManager();
+            window.checkoutManager = checkoutManager;
+        });
+    </script>
+</body>
+</html>
