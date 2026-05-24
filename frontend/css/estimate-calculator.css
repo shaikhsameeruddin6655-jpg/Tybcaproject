@@ -1,0 +1,707 @@
+/* Estimate Calculator Page Styles */
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.page-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+/* Calculator Section */
+.calculator-section {
+    margin-bottom: 4rem;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calculator-form {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.calculator-form h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Form Styles */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-help {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+/* Input with Unit */
+.input-with-unit {
+    position: relative;
+}
+
+.input-with-unit .form-input {
+    padding-right: 80px;
+}
+
+.input-unit {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.form-checkbox span {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Calculator Results */
+.calculator-results {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.calculator-results h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Results Placeholder */
+.results-placeholder {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-light);
+}
+
+.results-placeholder i {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.results-placeholder p {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Estimate Summary */
+.estimate-summary {
+    background: var(--gradient-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    color: white;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.summary-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.estimate-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.summary-details {
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+}
+
+.detail-item .label {
+    opacity: 0.9;
+}
+
+.detail-item .value {
+    font-weight: 600;
+}
+
+.summary-total {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.total-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.amount-label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.amount-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.total-breakdown {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Summary Features */
+.summary-features {
+    margin-top: 1.5rem;
+}
+
+.feature-group {
+    margin-bottom: 1rem;
+}
+
+.feature-group h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feature-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Cost Breakdown */
+.cost-breakdown {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md);
+}
+
+.cost-breakdown h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.breakdown-item {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.breakdown-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.breakdown-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.breakdown-header i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.breakdown-header h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.breakdown-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.breakdown-row span:first-child {
+    color: var(--text-secondary);
+}
+
+.breakdown-row span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Total Summary */
+.total-summary {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+}
+
+.summary-row.total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding-top: 1rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.summary-divider {
+    height: 2px;
+    background-color: var(--border-color);
+    margin: 1rem 0;
+}
+
+/* Estimate Actions */
+.estimate-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Saved Estimates */
+.saved-estimates {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.estimates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.estimates-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.estimates-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.estimate-card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    transition: var(--transition);
+}
+
+.estimate-card:hover {
+    background-color: var(--bg-tertiary);
+    transform: translateY(-1px);
+}
+
+.estimate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.estimate-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.estimate-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.estimate-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.estimate-amount {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.estimate-type {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.estimate-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.estimate-actions .btn {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+    min-height: auto;
+}
+
+/* Modal Styles */
+.quote-request-modal {
+    max-width: 600px;
+}
+
+.quote-request-modal h3 {
+    margin-bottom: 1rem;
+}
+
+.quote-request-modal p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.estimate-summary {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+}
+
+.estimate-summary h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.estimate-summary .summary-row {
+    font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.estimate-summary {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .breakdown-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .calculator-form,
+    .calculator-results {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .total-amount {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .amount-value {
+        font-size: 1.25rem;
+    }
+
+    .breakdown-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .breakdown-item {
+        padding: 1rem;
+    }
+
+    .estimate-actions {
+        flex-direction: column;
+    }
+
+    .estimate-actions .btn {
+        width: 100%;
+    }
+
+    .estimates-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .estimates-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-form,
+    .calculator-results,
+    .cost-breakdown,
+    .saved-estimates {
+        padding: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .calculator-form h2,
+    .calculator-results h2,
+    .cost-breakdown h3 {
+        font-size: 1.25rem;
+    }
+
+    .summary-details .detail-item {
+        font-size: 0.75rem;
+    }
+
+    .amount-value {
+        font-size: 1.125rem;
+    }
+
+    .feature-tag {
+        font-size: 0.625rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .breakdown-header {
+        gap: 0.75rem;
+    }
+
+    .breakdown-header i {
+        font-size: 1.25rem;
+    }
+
+    .breakdown-header h4 {
+        font-size: 1rem;
+    }
+
+    .summary-row {
+        font-size: 0.875rem;
+    }
+
+    .summary-row.total {
+        font-size: 1.125rem;
+    }
+}
+
+/* Loading States */
+.calculator-results.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.calculator-results.loading .results-placeholder {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .mobile-bottom-nav,
+    .estimate-actions,
+    .modal {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .estimate-summary {
+        background: var(--gradient-primary) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

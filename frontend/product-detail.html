@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Paints Works</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Colorful Background Elements -->
+    <div class="colorful-bg"></div>
+    <div class="color-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Paints Works</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="estimate-calculator.html" class="nav-link">Estimate Calculator</a>
+                    <a href="cart.html" class="nav-link">Cart</a>
+                    <a href="orders.html" class="nav-link">Orders</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="admin.html" class="admin-icon" title="Admin Panel">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="" alt="">
+                    </div>
+                    <div class="thumbnail-images">
+                        <!-- Thumbnails will be loaded here -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1 id="productTitle"></h1>
+                    <div class="product-rating">
+                        <div class="stars" id="productStars"></div>
+                        <span id="productReviews"></span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price" id="currentPrice"></span>
+                        <span class="original-price" id="originalPrice"></span>
+                    </div>
+                    <div class="product-description" id="productDescription"></div>
+                    <div class="product-features" id="productFeatures"></div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+                        <button class="btn btn-outline" id="addToWishlistBtn">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/page-sync.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
